@@ -28,6 +28,18 @@ RSpec.describe DavidJSON do
     it "parses a single-integer array" do
       expect(DavidJSON.parse("[1]")).to eq [1]
     end
+
+    it "parses a two-integer array" do
+      expect(DavidJSON.parse("[1, 2]")).to eq [1, 2]
+    end
+
+    it "parses a three-integer array" do
+      expect(DavidJSON.parse("[1, 2, 42]")).to eq [1, 2, 42]
+    end
+
+    it "parses a mixed-type array" do
+      expect(DavidJSON.parse('[1, "test"]')).to eq [1, "test"]
+    end
   end
 
   describe "a nil value" do
